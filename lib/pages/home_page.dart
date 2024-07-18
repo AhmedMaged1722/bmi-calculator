@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:bmi_app/pages/calc_page.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -20,9 +19,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0A0F1D),
+      backgroundColor: const Color(0xFF0D1232),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0A0F1D),
+        backgroundColor: const Color(0xFF0D1232),
         centerTitle: true,
         title: const Text(
           'BMI Calculator',
@@ -52,8 +51,8 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         decoration: BoxDecoration(
                             color: isMale
-                                ? const Color(0xFFD4004B)
-                                : const Color(0xFF1A1A2C),
+                                ? const Color(0xFF2196F3)
+                                : const Color(0xFF252A48),
                             borderRadius: BorderRadius.circular(10)),
                         child: const Padding(
                           padding: EdgeInsets.all(8.0),
@@ -71,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 'Male',
                                 style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.white,
                                     fontSize: 24,
                                     fontWeight: FontWeight.w500),
                               )
@@ -95,8 +94,8 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         decoration: BoxDecoration(
                             color: isMale
-                                ? const Color(0xFF1A1A2C)
-                                : const Color(0xFFD4004B),
+                                ? const Color(0xFF252A48)
+                                : const Color(0xFF2196F3),
                             borderRadius: BorderRadius.circular(10)),
                         child: const Padding(
                           padding: EdgeInsets.all(8),
@@ -114,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 'Female',
                                 style: TextStyle(
-                                    color: Colors.grey,
+                                    color: Colors.white,
                                     fontSize: 24,
                                     fontWeight: FontWeight.w500),
                               )
@@ -133,7 +132,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(right: 15, left: 15),
               child: Container(
                 decoration: BoxDecoration(
-                    color: const Color(0xFF1A1A2C),
+                    color: const Color(0xFF252A48),
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
@@ -178,9 +177,10 @@ class _HomePageState extends State<HomePage> {
                         height: 15,
                       ),
                       Slider(
-                        thumbColor: const Color(0xFFD4004B),
+                        activeColor: const Color(0xFFF44336),
+                        thumbColor: const Color(0xFFF44336),
                         inactiveColor: Colors.white,
-                        // secondaryActiveColor: Colors.white,
+                        secondaryActiveColor: Colors.white,
                         value: height,
                         max: 210.0,
                         min: 80.0,
@@ -201,21 +201,20 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(15),
               child: Row(
                 children: [
-                  // ignore: avoid_unnecessary_containers
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                          color: const Color(0xFF1A1A2C),
+                          color: const Color(0xFF252A48),
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
                               'Weight',
                               style: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500),
                             ),
@@ -235,35 +234,43 @@ class _HomePageState extends State<HomePage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FloatingActionButton(
-                                  heroTag: null,
-                                  onPressed: () {
-                                    setState(() {
-                                      weight--;
-                                    });
-                                  },
-                                  backgroundColor: const Color(0xFF434552),
-                                  child: const Icon(
-                                    Icons.remove,
-                                    size: 32,
-                                    color: Colors.white,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: const Color(0xFF0D1232),
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        weight++;
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.add,
+                                      size: 32,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                FloatingActionButton(
-                                  heroTag: null,
-                                  onPressed: () {
-                                    setState(() {
-                                      weight++;
-                                    });
-                                  },
-                                  backgroundColor: const Color(0xFF434552),
-                                  child: const Icon(
-                                    Icons.add,
-                                    size: 32,
-                                    color: Colors.white,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: const Color(0xFF0D1232),
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        weight--;
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.remove,
+                                      size: 32,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -276,11 +283,10 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     width: 20,
                   ),
-                  // ignore: avoid_unnecessary_containers
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                          color: const Color(0xFF1A1A2C),
+                          color: const Color(0xFF252A48),
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
                         padding: const EdgeInsets.all(8),
@@ -290,7 +296,7 @@ class _HomePageState extends State<HomePage> {
                             const Text(
                               'Age',
                               style: TextStyle(
-                                  color: Colors.grey,
+                                  color: Colors.white,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500),
                             ),
@@ -298,7 +304,7 @@ class _HomePageState extends State<HomePage> {
                               height: 10,
                             ),
                             Text(
-                              '$age',
+                              '${age.round()}',
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 42,
@@ -310,35 +316,43 @@ class _HomePageState extends State<HomePage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                FloatingActionButton(
-                                  heroTag: null,
-                                  onPressed: () {
-                                    setState(() {
-                                      age--;
-                                    });
-                                  },
-                                  backgroundColor: const Color(0xFF434552),
-                                  child: const Icon(
-                                    Icons.remove,
-                                    size: 32,
-                                    color: Colors.white,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: const Color(0xFF0D1232),
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        age++;
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.add,
+                                      size: 32,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                FloatingActionButton(
-                                  heroTag: null,
-                                  onPressed: () {
-                                    setState(() {
-                                      age++;
-                                    });
-                                  },
-                                  backgroundColor: const Color(0xFF434552),
-                                  child: const Icon(
-                                    Icons.add,
-                                    size: 32,
-                                    color: Colors.white,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: const Color(0xFF0D1232),
+                                  ),
+                                  child: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        age--;
+                                      });
+                                    },
+                                    icon: const Icon(
+                                      Icons.remove,
+                                      size: 32,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -352,34 +366,36 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Container(
-            width: double.infinity,
-            height: 65,
-            color: const Color(0xFFD4004B),
-            child: MaterialButton(
-              onPressed: () {
-                var result = weight / pow(height / 100, 2);
-
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CalcPage(
-                              isMale: isMale,
-                              height: height,
-                              bmi: result,
-                              weight: weight,
-                              age: age,
-                            )));
-              },
-              child: const Text(
-                'Calculate',
-                style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.white),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              fixedSize: const Size(350, 50),
+              backgroundColor: const Color(0xFFF44336),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
-          ),
+            onPressed: () {
+              var result = weight / pow(height / 100, 2);
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CalcPage(
+                            isMale: isMale,
+                            height: height,
+                            bmi: result,
+                            weight: weight,
+                            age: age,
+                          )));
+            },
+            child: const Text(
+              'Check Your BMI',
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
+            ),
+          )
         ],
       ),
     );

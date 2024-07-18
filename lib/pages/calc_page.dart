@@ -19,7 +19,7 @@ class CalcPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0A0F1D),
+      backgroundColor: const Color(0xFF0D1232),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -27,9 +27,10 @@ class CalcPage extends StatelessWidget {
           },
           icon: const Icon(
             Icons.arrow_back_ios_new,
+            color: Colors.white,
           ),
         ),
-        backgroundColor: const Color(0xFF0A0F1D),
+        backgroundColor: const Color(0xFF0D1232),
         centerTitle: true,
         title: const Text(
           'BMI Result',
@@ -41,95 +42,57 @@ class CalcPage extends StatelessWidget {
         ),
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(30),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Gender : ${isMale ? 'Male' : 'Female'}',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8, bottom: 8),
-              child: Divider(
-                color: Colors.white,
-                thickness: 0.6,
-                endIndent: 0,
-                indent: 0,
-                height: 10,
+            Container(
+              height: 100,
+              width: 250,
+              color: const Color(0xFF252A48),
+              child: Center(
+                child: Text(
+                  'Gender : ${isMale ? 'Male' : 'Female'}',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
-            Text(
-              'BMI : ${bmi.roundToDouble()}',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500),
+            const SizedBox(
+              height: 20,
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8, bottom: 8),
-              child: Divider(
-                color: Colors.white,
-                thickness: 0.6,
-                endIndent: 0,
-                indent: 0,
-                height: 10,
+            Container(
+              height: 100,
+              width: 250,
+              color: const Color(0xFF252A48),
+              child: Center(
+                child: Text(
+                  'Result : ${bmi.roundToDouble()}',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
-            Text(
-              'Height : ${height.round()}',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500),
+            const SizedBox(
+              height: 20,
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8, bottom: 8),
-              child: Divider(
-                color: Colors.white,
-                thickness: 0.6,
-                endIndent: 0,
-                indent: 0,
-                height: 10,
-              ),
-            ),
-            Text(
-              'Weight : ${weight.round()}',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8, bottom: 8),
-              child: Divider(
-                color: Colors.white,
-                thickness: 0.6,
-                endIndent: 0,
-                indent: 0,
-                height: 10,
-              ),
-            ),
-            Text(
-              'Age : $age',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8, bottom: 8),
-              child: Divider(
-                color: Colors.white,
-                thickness: 0.6,
-                endIndent: 0,
-                indent: 0,
-                height: 10,
+            Container(
+              height: 100,
+              width: 250,
+              color: const Color(0xFF252A48),
+              child: Center(
+                child: Text(
+                  'Age : $age',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
             ),
           ],
